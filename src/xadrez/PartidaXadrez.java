@@ -22,7 +22,11 @@ public class PartidaXadrez {
 		return matriz;		
 	}
 	
+	private void posicionarNovaPeca(char coluna, int linha, PecaXadrez peca) {
+		tabuleiro.posicionarPeca(peca, new PosicaoXadrez(coluna, linha).paraPosicao());
+	}
+	 
 	private void configInicial() {
-		tabuleiro.posicionarPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(2, 1));
+		posicionarNovaPeca('b', 6, new Torre(tabuleiro, Cor.BRANCO));
 	}
 }
