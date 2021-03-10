@@ -7,6 +7,7 @@ public class Tabuleiro {
 	
 	private Peca[][] pecas;
 
+	//construtor qtd linhas e colunas
 	public Tabuleiro(int linhas, int colunas) {
 		if (colunas < 1  || colunas < 1) {
 			throw new TabuleiroException("Erro criando tabuleiro: Deve conter ao menos 1 linha e 1 coluna");	
@@ -36,6 +37,19 @@ public class Tabuleiro {
 			throw new TabuleiroException("Posiçao nao existe no tabuleiro");
 		}	
 		return pecas[posicao.getLinha()][posicao.getColuna()];
+	}
+	
+	public Peca removePeca(Posicao posicao) {
+		if (!posicaoExiste(posicao)) {
+			throw new TabuleiroException("Posiçao nao existe");
+		}
+		if (peca(posicao)==null) {
+			return null;
+		}
+		Peca aux = peca(posicao);
+		aux.posicao = null;
+		pecas[posicao.getLinha()][posicao.getColuna()] = null;
+		return aux;
 	}
 	
 	public void posicionarPeca(Peca peca, Posicao posicao) {
