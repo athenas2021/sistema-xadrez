@@ -101,8 +101,8 @@ public class UI {
 	}
 	
 	public static void imprimePecasCapturadas(List<PecaXadrez> capturada) {
-		List<PecaXadrez> branca = capturada.stream().filter(x -> x.getCor()== Cor.BRANCO).collect(Collectors.toList());
-		List<PecaXadrez> preta = capturada.stream().filter(x -> x.getCor()== Cor.PRETO).collect(Collectors.toList());		
+		List<PecaXadrez> branca = capturada.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
+		List<PecaXadrez> preta = capturada.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList());		
 		System.out.println("Peças capturadas");
 		System.out.print("Jogador Branco: ");
 		System.out.print(ANSI_WHITE);

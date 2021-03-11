@@ -41,7 +41,7 @@ public class ProgramaPrincipal {
 				
 				PecaXadrez pecaCapturada = partidaXadrez.moverPecaXadrez(origem, destino);
 			
-				if(capturada != null) {
+				if(pecaCapturada != null) {
 					capturada.add(pecaCapturada);
 				}
 				

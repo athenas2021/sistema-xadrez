@@ -27,7 +27,7 @@ public class PartidaXadrez {
 	
 	public int getTurno() {
 		return turno;
-	}
+	} 
 	
 	public Cor getJogadorAtual() {
 		return jogadorAtual;
@@ -55,7 +55,8 @@ public class PartidaXadrez {
 		Posicao destino = posicaoDestino.paraPosicao();		
 		validarPosicaoOrigem(origem);
 		validarPosicaoDestino(origem, destino);
-		Peca pecaCapturada = realizarMovimento(origem,destino);		
+		Peca pecaCapturada = realizarMovimento(origem,destino);	
+		
 		proximoTurno();
 		return (PecaXadrez)pecaCapturada;
 	}
@@ -68,11 +69,11 @@ public class PartidaXadrez {
 			pecasNoTabuleiro.remove(pecaCapturada);
 			pecasCapturadas.add(pecaCapturada);			
 		}
-		return pecaCapturada;
+		return (PecaXadrez)pecaCapturada;
 	}
 	
 	private void validarPosicaoOrigem(Posicao posicao) {
-		if (!tabuleiro.posicaoExiste(posicao)) {
+		if (!tabuleiro.aquiUmaPeca(posicao)) {
 			throw new TabuleiroException("Nao ha peca na local indicado");
 		}
 		if (jogadorAtual != ((PecaXadrez)tabuleiro.peca(posicao)).getCor()) {
