@@ -12,18 +12,15 @@ import xadrez.PosicaoXadrez;
 
 public class ProgramaPrincipal {
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 		
 		Scanner sc = new Scanner(System.in);
 		PartidaXadrez partidaXadrez = new PartidaXadrez();
 		
 		List<PecaXadrez> capturada = new ArrayList<>();
 		
-		
-		while(true) {
-			try {	
-									
+		while(!partidaXadrez.getChequeMate()) {
+			try {										
 				UI.ClearScreen();
 				UI.imprimePartida(partidaXadrez, capturada);
 				System.out.println();
@@ -55,6 +52,7 @@ public class ProgramaPrincipal {
 				 sc.nextLine();
 			}
 		}
-		
+		UI.ClearScreen();
+		UI.imprimePartida(partidaXadrez, capturada);
 	} 
 }

@@ -57,13 +57,19 @@ public class UI {
 		imprimeTabuleiro(partidaXadrez.getPecas());
 		System.out.println();
 		imprimePecasCapturadas(capturada);
+		System.out.println();
 		System.out.println("Turno: " + partidaXadrez.getTurno());
-		System.out.println("Esperando o jogador: " + partidaXadrez.getJogadorAtual());
 		
-		if (partidaXadrez.getCheque()) {
-			System.out.println("CHEQUE!");
+		if(!partidaXadrez.getChequeMate()) {
+			System.out.println("Esperando o jogador: " + partidaXadrez.getJogadorAtual());
+			if (partidaXadrez.getCheque()) {
+				System.out.println("CHEQUE!");
+			}			
 		}
-		
+		else {
+			System.out.println("CHEQUE-MATE! - Fim do jogo");
+			System.out.println("Vencedor: " + partidaXadrez.getJogadorAtual());			
+		}		
 	}
 	
 	public static void imprimeTabuleiro(PecaXadrez[][] pecas) {
@@ -87,6 +93,7 @@ public class UI {
 		}
 		System.out.print("  a b c d e f g h");
 	}
+	
 	private static void imprimePeca(PecaXadrez peca, boolean background) {
 		if (background) {
 			System.out.print(ANSI_BLUE_BACKGROUND);
