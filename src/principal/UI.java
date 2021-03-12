@@ -59,6 +59,11 @@ public class UI {
 		imprimePecasCapturadas(capturada);
 		System.out.println("Turno: " + partidaXadrez.getTurno());
 		System.out.println("Esperando o jogador: " + partidaXadrez.getJogadorAtual());
+		
+		if (partidaXadrez.getCheque()) {
+			System.out.println("CHEQUE!");
+		}
+		
 	}
 	
 	public static void imprimeTabuleiro(PecaXadrez[][] pecas) {
